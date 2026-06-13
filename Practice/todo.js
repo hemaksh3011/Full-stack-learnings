@@ -10,7 +10,7 @@ function creation(event){
         console.log("submitted");    
 
         let li = document.createElement("li");
-        console.log(inp.value);
+        // console.log(inp.value);
         li.innerText = inp.value;
     
         let delbtn = document.createElement("button");
@@ -30,8 +30,8 @@ function creation(event){
   
             li.remove();
             ul2.appendChild(li2);
-
             right.appendChild(ul2);
+            
             inp.value="";        
 
 
