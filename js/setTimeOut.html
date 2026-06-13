@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    setTimeout(function,timeout)// already pre define function hai jo argument leta hai or pehle arg me func jaega or dusre arg me kitne time baad chalana hai vo aaega
+
+
+    <script>
+        const hello =()=>{
+            console.log("hello");
+        }
+
+        
+        const name = () =>{
+            console.log("hemaksh");
+        }
+        
+        // hello();
+        // setTimeout(name, 4000);
+
+        let count = parseInt(prompt("Enter time:"));
+
+        hello();
+        for(let i = 0 ; i < count ; i++){
+            setTimeout(name, i * 1000); //normally ek hi bar me sab kuch print ho jaega but qki apn ko delay chahiye to apn ne har iteration me time badha diya yani 1 second ka dlay hoga "i * 1000" ki vajah se
+        }
+        
+
+
+    </script>
+</body>
+</html>

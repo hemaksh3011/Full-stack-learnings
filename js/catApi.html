@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body> 
+    <h3 class="title" >Lets generate some random facts with the help of API</h3>
+    <button class="generate" >Generate</button>
+    <p class="facts" ></p>
+    <hr>
+
+    <h3 class="title" >Want to know about different breeds ?</h3>
+    <button class="find" >Find</button>
+    <p class="breed" ></p>
+    <hr>
+
+    <h3 class="title" >Now find the breed from selected country !</h3>
+    <select name="breed" id="country">
+        <option value="India">India</option>
+        <option value="America">America</option>
+        <option value="Brazil">Brazil</option>
+    </select>
+    <button class="guess" >guess</button>
+    <p class="type" ></p>
+
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="catApi.js" ></script>
+</body>
+</html>

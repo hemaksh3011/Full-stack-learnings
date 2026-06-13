@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    reduce callback use krenge jisme single value return krwani hoti hai for example humko array ke elements ka total chahiye
+    arg1 is accumulator and arg2 is element
+    <script>
+        let arr1=[1,2,3,4,5,6,245,365,36,3,63,675,636,4];
+
+        let total = arr1.reduce( (arg1,arg2)=>arg1+arg2)    
+
+        console.log(total);
+
+
+        // yaha single value chahiye thi to apn ne bina curly braces ke kiya
+        // or arg1 me pehle 0 hota hai and arg2 me first element of array
+        // arg 1 and arg2 me operation ke baad ki value arg1 me chali jati hai
+        // looks like loop
+
+        
+    </script>
+</body>
+</html>

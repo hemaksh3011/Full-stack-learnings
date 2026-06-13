@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2>Higher Order Function</h2>
+    <p>ye function ko isiliye banaya tha taki koi ek function ko agar bar bar call krwana hai user ki need ke according , to bar bar function call na krna pde or loop ki help semultiple time apne hisab se function call ho jae </p>
+    <script>
+
+
+        function multiplePrint(funcKaName,count){       //yaha function banaya jisme 2 argument pass kiye ki konsa function kitni bar call krna hai
+            for(let i=0;i<count;i++){
+                funcKaName();                           //yaha fhir us function ko call krenge bass (or function koi bhi ho skta hai argument me sirf name hai)
+            }
+        }
+
+
+        function greet(){     //yaha koi bhi random function bana denge jo ki call hoga jab bade function me srgument denege
+            console.log("hello namaste !");
+        }
+
+        multiplePrint(greet,5);             //yaha greet function ko 5 bar call kiya hai
+
+        multiplePrint(function() {console.log("direct inject hoga bade function me")},10); //ab yaha argument wese hi chl raha hai bass function ka naam dene ki jagah function hi bana diya
+
+    </script>
+</body>
+</html>

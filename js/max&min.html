@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    maximum number in array with reduce jisme 2 args jaenge jo maximum hold krega or 2nd current element fhir compare krega
+
+    <script>
+        let arr1=[1,2,88,3,6,7,5,43,56,23];
+
+        let maximum = arr1.reduce((max,ele)=>{
+            if(max>ele){
+                return max;
+            }else{
+                return ele;
+            }
+        })
+
+        console.log(maximum);
+
+        let minimum = arr1.reduce((min,ele)=>{
+            if(min>ele){
+                return ele;
+            }else{
+                return min;
+            }
+        })
+
+        console.log(minimum);
+    </script>
+</body>
+</html>

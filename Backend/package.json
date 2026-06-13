@@ -1,0 +1,12 @@
+{
+  "name": "node_installation",
+  "version": "1.0.0",
+  "description": "I've learnt to install packages and how it works",
+  "license": "ISC",
+  "author": "Hk",
+  "type": "module",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  }
+}

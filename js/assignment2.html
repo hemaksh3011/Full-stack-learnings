@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    assignment questions
+    ques 1. return the average of an array of numbers in javascript
+    ques 2. arro func banao or single argument lekr even or odd print krwao
+    <script>
+
+        // const arrayAverage=()=>{
+        //     const arr1 = [1,2,3,4,5];
+        //     let sum = 0;
+        //     for(let i=0 ; i< arr1.length; i++){
+        //         sum = sum + arr1[i];
+        //     }   
+        //     return sum/arr1.length;
+        // }
+
+
+        // const isEven=(num)=>{
+            
+        //     if(num%2==0){
+        //         console.log(`${num} is even`);
+        //     }else{
+        //         console.log(`${num} is odd`);
+        //     }
+        // }
+
+
+        // const object={
+        //     message:'Hello,World!',
+        //     logMessage(){
+        //         console.log(this.message);
+        //     }
+        // };
+        
+        // setTimeout(object.logMessage,1000);
+
+
+
+        let length=4;
+        function callback(){
+            console.log(this.length);
+        }
+        const object={
+            length :5,
+            method(callback){
+                callback();
+            },
+        };
+        object.method(callback,1,2);
+    </script>
+</body>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2>jese normally objects banate hai key:value pair me wese hi functions ko jab objects me banaya jata hai to key:value pair me banate hai</h2>
+    <script>
+        const methodName = {                    
+            add: function(a,b){         
+                return a+b;             
+            },
+            power(a,b){         //also shorthand tarika bhi hai jisme direct function define krdo bina key value ke
+                return a**b;
+            },
+            sub: function(a,b){
+                return a-b;
+            },
+            multi(a,b){
+                return a*b;
+            },
+            div: function(a,b){
+                return a/b;
+            },
+            mod(a,b){
+                return a%b;
+            }
+        }
+
+        // output kuch aisa hoga
+        // methodName.add(5,6)
+        // 11
+        // methodName.sub(5,6)
+        // -1
+        // methodName.multi(5,6)
+        // 30
+        // methodName.div(5,6)
+        // 0.8333333333333334
+        // methodName.mod(5,6)
+        // 5
+
+    </script>
+</body>
+</html>

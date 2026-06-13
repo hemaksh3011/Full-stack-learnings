@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2>assignmetns questions   </h2>
+    Qs1. Write a JavaScript function that returns array elements larger than a number. <br>
+    Qs2. Write a JavaScript function to extract unique characters from a string.
+    Example: str = “abcdabcdefgggh”
+    ans = “abcdefgh”<br>
+    Qs3. Write a JavaScript function that accepts a list of country names as input and
+    returns the longest country name as output.
+    Example : country = ["Australia", "Germany", "United States of America"]
+    output : "United States of America"<br>
+    Qs4. Write a JavaScript function to count the number of vowels in a String argument.<br>
+    Qs5. Write a JavaScript function to generate a random number within a range (start,
+    end). 
+
+
+
+    <script>
+        // ques1
+        {
+        let arr=[1,2,2,3,4,5,6,7,8,5,3];
+        let num = 5;
+
+        function big(arr,num){
+            for(let i=0;i<arr.length;i++){
+                if(arr[i]>num){
+                    console.log(arr[i]);
+                }
+            }
+        }}
+        // ques2
+        {
+
+        }
+        // ques3
+        {
+            let country = ["wsdef34567867vg","oijuhygtfc","okijmn"];
+
+            function counting(country){
+                let longest = 0; // yaha hona chahiye
+            
+                for(let i =0;i<country.length;i++){
+                    let currentLength = country[i].length;
+                    let compareidx = country[longest].length;
+            
+                    if(currentLength >= compareidx){
+                        longest = i;
+                    }
+                }
+                return country[longest];
+            }
+            
+            console.log(counting(country));
+
+        }
+        // ques4
+        {
+
+        }
+        // ques5
+        {
+            let start = 100;
+            let end = 200;
+            function generateRandom(start, end) {
+                let diff = end - start;
+                return Math.floor(Math.random() * diff) + start;
+            }
+
+        }   
+    </script>
+</body>
+</html>

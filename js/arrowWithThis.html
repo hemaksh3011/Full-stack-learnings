@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    arrow function with this keyword
+    and major difference in regular function and arrow function is
+    Regular function me this jisne call kiya usko point karta hai, jabki arrow function me this apne bahar wale scope ko hi use karta hai.
+
+
+    kehne ka mtlb agar normal function bana kr this use kiya to apne parent (father) ki property use krega but wahi agar arrow function me this use kiya to apne parent ka this yani (grandfather) ki property use krega
+</body>
+
+<script>
+    const student ={
+            name:"hk",
+           
+            getab(){
+                console.log(this.name);
+            },
+            getbc:() =>{
+                console.log(this.name);
+            }
+        };
+</script>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    "every" method ek type ka logical operator ki trah kaam krta hai ...jo sirf ture ya false return krta hai
+    or ek bhi unappropriate element hua to false return kr dega 
+    or ture ke liye saare appropriate hone chahiye
+    for example arr me saare even hai ya nhi 
+
+
+    <script>
+
+
+        let arr1 = [1,2,2,3,4,5,6];
+        let arr2 = [2,4,6,8,0];
+        let arr3 = [1,3,5,7,9];
+        
+        [1,2,2,3,4,5,6].every( (num)=>{
+            return num%2==0;
+        } )
+        [2,4,6,8,0].every( (num)=>{
+            return num%2==0;
+        } )
+        arr3.every( (num)=>{
+            return num%2==0;
+        } )
+
+        //koi bhi tarika lelo shi hai sab... chahe line me array banao ya call kro
+
+    </script>
+</body>
+</html>

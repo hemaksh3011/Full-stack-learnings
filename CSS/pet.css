@@ -1,0 +1,40 @@
+h4{
+    color: rgb(253, 73, 73);
+    font-family:cursive ;
+    text-align: center;
+    font-size: 29px;
+}
+
+h2{
+    text-transform: capitalize;
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+    word-spacing: 8px;
+    letter-spacing: 2px;
+}
+
+.container{
+    display: flex;
+    justify-content: space-evenly;
+
+}
+
+.card{
+    height: 550px;
+    width: 300px;
+    border: 1.5px solid black;
+    border-radius: 15px;
+    padding: 10px;
+    /* transition: 1s; */
+    box-shadow: 2px 5px 10px black ;
+    transition: 0.2s ;
+
+}
+img{
+    border-radius: 15px;
+}
+
+.card:hover{
+    box-shadow: 6px 15px 30px rgb(98, 24, 24) ;
+    transform: scale(1.02);
+
+}

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let greet = "hello"; //globle scope
+        function changeGreet() {
+            let greet = "namaste";  //function scope
+            console.log(greet);
+
+            function innerGreet(){
+                console.log(greet);  //lexical scope
+            }
+            innerGreet();
+        }
+        console.log(greet);
+        changeGreet();
+    </script>
+</body>
+</html>
