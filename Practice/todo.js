@@ -5,10 +5,8 @@ let inp = document.querySelector(".task");
 let right = document.querySelector(".right");
 let rmall = document.querySelector(".delete");
 
-function creation(event){
-    if(event.key === "Enter"){
-        console.log("submitted");    
 
+function addTask(){
         let li = document.createElement("li");
         // console.log(inp.value);
         li.innerText = inp.value;
@@ -42,8 +40,14 @@ function creation(event){
 
         });
     }
-};
 
-inp.addEventListener("keypress",creation);
-btn.addEventListener("keypress",creation);
+// Enter key se task add
+inp.addEventListener("keydown", function (event) {
+    if (event.key === "Enter") {
+        addTask();
+    }
+});
+
+// Button click se task add
+btn.addEventListener("click", addTask);
 
