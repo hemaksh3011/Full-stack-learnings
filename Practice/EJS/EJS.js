@@ -4,8 +4,7 @@ const path = require("path");
 
 const port = 3300;
 
-app.use(express.static("public"));
-
+app.use(express.static(path.join(__dirname,"/public")));
 app.set("view engine", "ejs");
 app.set("views", path.join(__dirname, "/views"));
 
@@ -37,10 +36,3 @@ app.get("/instagram/:dataname",(req,res)=>{
 app.listen(port, () => {
   console.log(`port listening on ${port}`);
 });
-
-
-// let dogs = document.querySelector(".dogs");
-
-// dogs.addEventListener("click",function(){
-//     window.location.href = "http://localhost:3300/instagram/dogs";
-// })

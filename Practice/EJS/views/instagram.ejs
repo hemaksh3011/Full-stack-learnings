@@ -1,12 +1,5 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-
+<%- include("includes/head.ejs") %>
+<!-- ye hai include wala scene jo ki views me hi banega or default usme se hi jo universal code hoga yani koi specific template usko rakhega like headers and footers -->
 <body>
     <h2>The Instagram page of <%= data.name %>
     </h2>
@@ -24,7 +17,9 @@
         <% } %>
     </p>
 
-    <!-- <button class="dogs" >dogs</button> -->
+    <button class="dogs">dogs</button>
+
 </body>
+<script src="/index.js" ></script>
 
 </html>
