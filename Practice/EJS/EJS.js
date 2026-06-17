@@ -4,6 +4,8 @@ const path = require("path");
 
 const port = 3300;
 
+app.use(express.static("public"));
+
 app.set("view engine", "ejs");
 app.set("views", path.join(__dirname, "/views"));
 
@@ -24,11 +26,21 @@ app.get("/dice/:username", (req, res) => {
 
 });
 
-app.get("/instagram",(req,res)=>{
+app.get("/instagram/:dataname",(req,res)=>{
+    let {dataname} = req.params;
     const instaData = require("./InstaData.json");
-    res.render("instagram.ejs");
+    let data = instaData[dataname]
+    // console.log(data);
+    res.render("instagram.ejs", {data});
 })
 
 app.listen(port, () => {
   console.log(`port listening on ${port}`);
 });
+
+
+// let dogs = document.querySelector(".dogs");
+
+// dogs.addEventListener("click",function(){
+//     window.location.href = "http://localhost:3300/instagram/dogs";
+// })
