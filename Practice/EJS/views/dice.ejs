@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h2>Dice rolled</h2>
+
+    <h3>and the number <%= diceValue %> is for <%= username %>
+    </h3>
+        <% if(diceValue==6){ %>
+        <h4>Nice!! Roll again</h4>
+        <% } %>
+
+
+        <h4>another members</h4>
+
+        <% for(let name of names){ %>
+                <ul>
+                    <li><%= name %></li>
+                </ul>
+        <% } %>
+
+        <!-- ye "=" wala sign sirf output ya variables ke liye hoga or agar sirf code work krna hai to "=" nahi aaega -->
+</body>
+
+</html>
