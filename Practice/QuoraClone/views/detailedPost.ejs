@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Deatiled Post</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+    <h3>Here's your detailed post</h3>
+    <p>Post id : <%= post.id %></p>
+    <div class="card">
+        <h3 class="handle">@<%= post.username %></h3>
+        <p class="data" >-- <%= post.content %></p>
+    </div>
+    <a href="http://localhost:3300/post">Go Back</a>
+</body>
+</html>
