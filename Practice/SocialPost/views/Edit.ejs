@@ -1,70 +1,35 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
-  <title>Edit Profile</title>
-  <style>
-    body {
-      font-family: Arial;
-      background: #f5f5f5;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
-    }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Profile</title>
+    <link rel="stylesheet" href="/style.css">
 
-    .form-box {
-      background: white;
-      padding: 20px;
-      border-radius: 10px;
-      width: 300px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-    }
-
-    h2 {
-      text-align: center;
-      margin-bottom: 15px;
-    }
-
-    input, textarea {
-      width: 100%;
-      padding: 8px;
-      margin: 8px 0;
-      border-radius: 6px;
-      border: 1px solid #ccc;
-    }
-
-    button {
-      width: 100%;
-      padding: 10px;
-      background: black;
-      color: white;
-      border: none;
-      border-radius: 6px;
-      cursor: pointer;
-    }
-
-    button:hover {
-      background: #333;
-    }
-  </style>
 </head>
 
 <body>
+    <div>
+        <form class="card" method="post" action="http://localhost:3300/home/<%= post.id %>?_method=PATCH">
+            <div class="left">
+                <h2>Edit Profile</h2>
+                <img src=<%=post.profile_image %>>
+            </div>
+            <div class="right">
+                <input class="name" placeholder="Username" name="username" value="<%= post.username %>">
+                <input class="age" placeholder="Age" name="age" value="<%= post.age %>">
+                <input class="field" placeholder="Field" name="field_of_work" value="<%= post.field_of_work %>">
+                <input class="quali" placeholder="Qualification" name="qualification" value="<%= post.qualification %>">
+                <input class="img" placeholder="New Url" name="profile_image" value="<%= post.profile_image %>">
+                <textarea class="des" name="brief_description" rows="3"><%= post.brief_description %></textarea>
+                <button type="submit">Update</button>
+            </div>
+            <a href="http://localhost:3300/home">Back</a>
 
-<div class="form-box">
-  <h2>Edit Profile</h2>
-
-  <form method="post" action="http://localhost:3300/home/<%= post.id %>?_method=PATCH" >
-    <input name="username" value="<%= post.username %>" >
-    <input name="age" value="<%= post.age %>" >
-    <input name="field_of_work" value="<%= post.field_of_work %>" >
-    <input name="qualification" value="<%= post.qualification %>" >
-    <input placeholder="Image Url" value="<%= post.profile_image %>">    
-    <textarea name="brief_description" rows="3" >value="<%= post.brief_description %>"</textarea>
-
-    <button type="submit">Update</button>
-  </form>
-</div>
+        </form>
+    </div>
 
 </body>
+
 </html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Profile</title>
+    <link rel="stylesheet" href="/style.css">
+
+</head>
+
+<body>
+
+    <div class="card">
+        <div class="left">
+            <h2>Deatiled Profile</h2>
+            <img src="<%=post.profile_image %>">
+        </div>
+        <div class="right">
+            <div class="ids">id: <%= post.id %>
+            </div>
+            <div class="name">Name : <%= post.username %>
+            </div>
+            <div class="age">Age: <%= post.age %>
+            </div>
+            <div class="quali">Edu. : <%= post.qualification %>
+            </div>
+            <div class="field">Field : <%= post.field_of_work %>
+            </div>
+            <div class="des">Description : <%= post.brief_description %>
+            </div>
+            <br>
+            <form method="post" action="http://localhost:3300/home/<%= post.id %>?_method=DELETE">
+                <button type="submit">Delete</button>
+            </form>
+            <p>
+                <a href="http://localhost:3300/home/<%= post.id %>/edit">Edit this post</a>
+                <a href="http://localhost:3300/home">Back</a>
+            </p>
+        </div>
+    </div>
+
+</body>
+
+</html>

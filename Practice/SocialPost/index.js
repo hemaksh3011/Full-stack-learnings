@@ -6,6 +6,7 @@ const path = require("path");
 const { v4: uuidv4 } = require("uuid");
 const methodOverride = require("method-override");
 
+app.use(methodOverride("_method"));
 app.use(express.urlencoded({ extended: true }));
 app.set("view engine", "ejs");
 app.set("views", path.join(__dirname, "views"));
@@ -51,13 +52,26 @@ app.get("/home/:id/edit", (req, res) => {
 
 app.patch("/home/:id",(req,res)=>{
     let {id} = req.params;
+    let newUsername = req.body.username;
     let post = posts.find((p) => id === p.id);
-    username = req.body.username;
-    age = req.body.age;
-    field_of_work = req.body.field_of_work;
-    qualification = req.body.qualification;
-    brief_description = req.body.brief_description;
-    profile_image = req.body.profile_image;
+    post.username = newUsername;
+    post.age = req.body.age;
+    post.field_of_work = req.body.field_of_work;
+    post.qualification = req.body.qualification;
+    post.brief_description = req.body.brief_description;
+    post.profile_image = req.body.profile_image;
+    res.redirect("/home");
+})
+
+app.get("/home/:id",(req,res)=>{
+    let {id} = req.params;
+    let post = posts.find((p) => p.id === id);
+    res.render("Detailed.ejs",{post});
+});
+
+app.delete("/home/:id",(req,res)=>{
+    let {id} = req.params;
+    posts = posts.filter((p)=>id !== p.id);   
     res.redirect("/home");
 })
 
@@ -68,6 +82,12 @@ app.get("/", (req, res) => {
 app.listen(port, () => {
   console.log("port chalu hai 3300 par");
 });
+
+
+
+
+
+
 
 //random database
 let posts = [

@@ -1,0 +1,123 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f5f7fa;
+    margin: 0;
+    padding: 20px;
+}
+
+/* Headings */
+h2 {
+    text-align: center;
+    color: #333;
+}
+
+h3 {
+    text-align: center;
+    font-weight: normal;
+}
+
+h3 a {
+    text-decoration: none;
+    color: white;
+    background: #007bff;
+    padding: 6px 12px;
+    border-radius: 6px;
+    margin-left: 10px;
+}
+
+h3 a:hover {
+    background: #0056b3;
+}
+
+/* Container */
+.container {
+    display: grid;
+    grid-template-columns: 2fr 2fr;
+}
+
+/* Card */
+.card {
+    display: flex;
+    background: #fff;
+    width: 90%;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    padding: 15px;
+    margin: 15px 0;
+    transition: 0.3s;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+}
+
+/* Profile Image */
+.left{
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    
+}
+.left img {
+    width: 120px;
+    height: 120px;
+    border-radius: 25%;
+    object-fit: cover;
+
+}
+
+/* Right Section */
+.right {
+    display: flex;
+    flex-direction: column;
+    margin-left: 20px;
+    flex: 1;
+    line-height: 2rem;
+}
+
+.name {
+    font-size: 18px;
+    font-weight: bold;
+    color: #222;
+}
+
+.des {
+    margin-top: 8px;
+    font-size: 14px;
+    color: #666;
+}
+
+/* Links */
+.right a {
+    text-decoration: none;
+    margin:5px 0px;
+    padding: 6px 10px;
+    border-radius: 6px;
+    font-size: 14px;
+    background: #e9ecef;
+    color: #333;
+}
+
+.right a:hover {
+    background: #d6d8db;
+}
+
+/* Delete button */
+form {
+    display: inline;
+}
+
+button {
+    padding: 6px 10px;
+    border: none;
+    border-radius: 6px;
+    background: #dc3545;
+    color: white;
+    cursor: pointer;
+    margin-top: 20px;
+    font-size: 12px;
+}
+
+button:hover {
+    background: #b02a37;
+}
