@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+</head>
+
+<body>
+    <h2>SocialPost</h2>
+    <h3>Some User Profiles <a href="http://localhost:3300/create">Create SocialPost</a></h3>
+    <hr>
+    <%for(post of posts){ %>
+        <div class="container">
+            <div class="card">
+                <div class="left">
+                    <img src=<%=post.profile_image %>>
+                </div>
+                <div class="right">
+                    <div class="ids">id: <%= post.id %>
+                    </div>
+                    <div class="name">Name : <%= post.username %> </div>
+                    <div class="age">Age: <%= post.age %></div>
+                    <div class="quali">Edu. : <%= post.qualification %></div>
+                    <div class="field">Field : <%= post.field_of_work %></div>
+                    <div class="des">Description : <%= post.brief_description %></div>
+                    <br>
+                    <a href="http://localhost:3300/home/<%= post.id %>/edit">Edit this post</a>
+                    <a href="http://localhost:3300/delete">Delete this post</a>
+                </div>
+            </div> <hr> <br>
+        </div>
+        <%}%>
+</body>
+
+</html>
