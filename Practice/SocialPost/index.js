@@ -12,7 +12,7 @@ app.set("view engine", "ejs");
 app.set("views", path.join(__dirname, "views"));
 app.use(express.static(path.join(__dirname, "public")));
 
-app.get("/home", (req, res) => {
+app.get("/", (req, res) => {
   res.render("Home.ejs", { posts });
 });
 
@@ -20,7 +20,7 @@ app.get("/create", (req, res) => {
   res.render("create.ejs");
 });
 
-app.post("/home", (req, res) => {
+app.post("/", (req, res) => {
   let {
     username,
     age,
@@ -41,16 +41,16 @@ app.post("/home", (req, res) => {
     brief_description,
     profile_image,
   });
-  res.redirect("/home");
+  res.redirect("/");
 });
 
-app.get("/home/:id/edit", (req, res) => {
+app.get("/:id/edit", (req, res) => {
   let { id } = req.params;
   let post = posts.find((p) => id === p.id);
   res.render("edit.ejs", { post });
 });
 
-app.patch("/home/:id",(req,res)=>{
+app.patch("/:id",(req,res)=>{
     let {id} = req.params;
     let newUsername = req.body.username;
     let post = posts.find((p) => id === p.id);
@@ -60,19 +60,19 @@ app.patch("/home/:id",(req,res)=>{
     post.qualification = req.body.qualification;
     post.brief_description = req.body.brief_description;
     post.profile_image = req.body.profile_image;
-    res.redirect("/home");
+    res.redirect("/");
 })
 
-app.get("/home/:id",(req,res)=>{
+app.get("/:id",(req,res)=>{
     let {id} = req.params;
     let post = posts.find((p) => p.id === id);
     res.render("Detailed.ejs",{post});
 });
 
-app.delete("/home/:id",(req,res)=>{
+app.delete("/:id",(req,res)=>{
     let {id} = req.params;
     posts = posts.filter((p)=>id !== p.id);   
-    res.redirect("/home");
+    res.redirect("/");
 })
 
 app.get("/", (req, res) => {

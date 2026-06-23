@@ -17,7 +17,7 @@
             <div class="card">
                 <div class="left">
                     <img src=<%=post.profile_image %>>
-                    <form method="post" action="http://localhost:3300/home/<%= post.id %>?_method=DELETE">
+                    <form method="post" action="http://localhost:3300/<%= post.id %>?_method=DELETE">
                         <button type="submit">Delete</button>
                     </form>
                 </div>
@@ -36,8 +36,8 @@
                     </div>
                     <br>
                     <p>
-                        <a href="http://localhost:3300/home/<%= post.id %>">View</a>
-                        <a href="http://localhost:3300/home/<%= post.id %>/edit">Edit this post</a>
+                        <a href="http://localhost:3300/<%= post.id %>">View</a>
+                        <a href="http://localhost:3300/<%= post.id %>/edit">Edit this post</a>
                     </p>
                 </div>
             </div>
