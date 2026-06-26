@@ -1,17 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Users</title>
 
     <style>
-        table,tr,td{
+        table,
+        tr,
+        td {
             border: 1px solid black;
         }
-    
     </style>
 </head>
+
 <body>
     <h2>here are the users</h2>
     <table>
@@ -21,12 +24,24 @@
             <th>Employee Mails</th>
         </tr>
         <%for(user of users){%>
-        <tr>
-                <td><%= user.emp_id %></td>
-                <td><%= user.emp_name %></td>
-                <td><%= user.emp_mail %></td>
+            <tr>
+                <td>
+                    <%= user.emp_id %>
+                </td>
+                <td>
+                    <%= user.emp_name %>
+                </td>
+                <td>
+                    <%= user.emp_mail %>
+                </td>
+                <td>
+                    <form method="GET" action="users/<%= user.emp_id %>/edit">
+                        <button type="submit">Edit Info</button>
+                    </form>
+                </td>
             </tr>
             <%}%>
-        </table>
+    </table>
 </body>
+
 </html>

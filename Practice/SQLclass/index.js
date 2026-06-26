@@ -4,6 +4,11 @@ const express = require("express");
 const app = express();
 const path = require("path");
 
+
+const methodOverride = require("method-override");
+app.use(methodOverride("__method"));
+app.use(express.urlencoded({ extended: true }));
+
 app.set("view engine", "ejs");
 app.set("views", path.join(__dirname, "/views"));
 
@@ -46,14 +51,34 @@ app.get("/users", (req, res) => {
   try {
     connection.query(query, (err, users) => {
       if (err) throw err;
-    //   let data = result[0]
-      res.render("users.ejs",{users});
-      
+      //   let data = result[0]
+      res.render("users.ejs", { users });
     });
   } catch (err) {
     console.log(err);
     res.send("koi gadbad hai baba");
   }
+});
+
+//EDIT ROUTE
+app.get("/users/:id/edit", (req, res) => {
+  let { id } = req.params;
+  let query = `select * from emp where emp_id = '${id}'`;
+  try {
+    connection.query(query, (err, result) => {
+      if (err) throw err;
+      let user = result[0];
+      res.render("edit.ejs", { user });
+    });
+  } catch (err) {
+    console.log(err);
+    res.send("koi gadbad hai baba");
+  }
+});
+
+//UPDATE ROUTE
+app.patch("/users/:id",(req,res)=>{
+    res.send("yiufygkjhcgv");
 });
 
 //INSERTING DATA IN SQL DATABASE
