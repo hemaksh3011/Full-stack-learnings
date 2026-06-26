@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Users</title>
+
+    <style>
+        table,tr,td{
+            border: 1px solid black;
+        }
+    
+    </style>
+</head>
+<body>
+    <h2>here are the users</h2>
+    <table>
+        <tr>
+            <th>Employee Id</th>
+            <th>Employee Names</th>
+            <th>Employee Mails</th>
+        </tr>
+        <%for(user of users){%>
+        <tr>
+                <td><%= user.emp_id %></td>
+                <td><%= user.emp_name %></td>
+                <td><%= user.emp_mail %></td>
+            </tr>
+            <%}%>
+        </table>
+</body>
+</html>
