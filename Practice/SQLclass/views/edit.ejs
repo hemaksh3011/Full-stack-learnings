@@ -1,16 +1,37 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>EDIT</title>
+    <link rel="stylesheet" href="/style.css">
 </head>
-<body>
-    <h2>Haa bhai edit krlo yaha <%= user.emp_mail %> ka name</h2>
-    <form method="post" action="/users/<%= user.emp_id %>?_method=PATCH">
-        <textarea name="username" ><%= user.emp_name %></textarea>
-        <input type="password" name="password" placeholder="password">
-        <button type="submit">Edit</button>
-    </form>
+
+<body class="page page-edit">
+
+    <div class="container center">
+        <div class="card form-card">
+            <h2 class="heading">
+                Edit User: <span class="highlight">
+                    <%= user.emp_name %>
+                </span>
+            </h2>
+
+            <form method="post" action="/users/<%= user.emp_id %>?_method=PATCH" class="form">
+
+                <input class="input" type="text" name="username" value="<%= user.emp_name %>" required>
+
+                <input class="input" type="email" name="email" value="<%= user.emp_mail %>" required>
+
+                <input class="input" type="password" name="password" placeholder="Enter Password" required>
+
+                <button class="btn btn-primary" type="submit">Update</button>
+
+            </form>
+        </div>
+    </div>
+
 </body>
+
 </html>

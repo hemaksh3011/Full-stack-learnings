@@ -12,6 +12,9 @@ app.use(express.urlencoded({ extended: true }));
 app.set("view engine", "ejs");
 app.set("views", path.join(__dirname, "/views"));
 
+app.use(express.static(path.join(__dirname, "public")));
+
+
 const connection = mysql.createConnection({
   host: "localhost",
   user: "root",
@@ -79,7 +82,7 @@ app.get("/users/:id/edit", (req, res) => {
 //UPDATE ROUTE
 app.patch("/users/:id", (req, res) => {
   let { id } = req.params;
-  let { password: formPass, username: newuser } = req.body;
+  let { password: formPass, username: newuser , email : mails } = req.body;
   let query = `select * from emp where emp_id = '${id}'`;
   try {
     connection.query(query, (err, result) => {
@@ -88,7 +91,7 @@ app.patch("/users/:id", (req, res) => {
       if (formPass != user.emp_password) {
         res.send("galat password hai baba !");
       } else {
-        let query2 = `update emp set emp_name='${newuser}' where emp_id = '${id}'`;
+        let query2 = `update emp set emp_name='${newuser}', emp_mail='${mails}' where emp_id = '${id}'`;
         connection.query(query2, (err, result) => {
           if (err) throw err;
           // res.send(result);

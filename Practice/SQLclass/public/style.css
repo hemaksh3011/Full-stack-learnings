@@ -1,0 +1,134 @@
+/* RESET */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  /* COLORS */
+  :root {
+    --bg: #0f172a;
+    --card: #1e293b;
+    --accent: #6366f1;
+    --text: #e2e8f0;
+    --muted: #94a3b8;
+    --danger: #ef4444;
+  }
+  
+  /* BODY */
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Poppins', sans-serif;
+  }
+  
+  /* LAYOUT */
+  .container {
+    padding: 40px;
+    max-width: 1000px;
+    margin: auto;
+  }
+  
+  .center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 80vh;
+  }
+  
+  /* CARD */
+  .card {
+    background: var(--card);
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+  }
+  
+  .card-center {
+    text-align: center;
+  }
+  
+  /* HEADINGS */
+  .heading {
+    margin-bottom: 20px;
+  }
+  
+  .highlight {
+    color: var(--accent);
+  }
+  
+  /* BUTTONS */
+
+  .header {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .btn {
+    padding: 10px 16px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: 0.3s;
+    text-decoration: none;
+  }
+  
+  .btn-primary {
+    background: var(--accent);
+    color: white;
+  }
+  
+  .btn-edit {
+    background: #22c55e;
+    color: white;
+  }
+  
+  .btn-delete {
+    background: var(--danger);
+    color: white;
+  }
+  
+  .btn:hover {
+    opacity: 0.85;
+    transform: translateY(-2px);
+  }
+  
+  /* TABLE */
+  .table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  .table th,
+  .table td {
+    padding: 12px;
+    text-align: left;
+  }
+  
+  .table th {
+    color: var(--muted);
+  }
+  
+  .table tr {
+    border-bottom: 1px solid #334155;
+  }
+  
+  /* FORM */
+  .form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+  }
+  
+  .input {
+    padding: 10px;
+    border-radius: 8px;
+    border: none;
+    outline: none;
+    background: #334155;
+    color: white;
+  }
+  
+  .input::placeholder {
+    color: var(--muted);
+  }

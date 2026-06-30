@@ -1,53 +1,55 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Users</title>
-
-    <style>
-        table,
-        tr,
-        td {
-            border: 1px solid black;
-        }
-    </style>
+    <link rel="stylesheet" href="/style.css">
 </head>
 
-<body>
-    <h2>here are the users</h2><a href="http://localhost:3300/add">Add a new Emp
-    </a>
-    <table>
-        <tr>
-            <th>Employee Id</th>
-            <th>Employee Names</th>
-            <th>Employee Mails</th>
-        </tr>
-        <%for(user of users){%>
-            <tr>
-                <td>
-                    <%= user.emp_id %>
-                </td>
-                <td>
-                    <%= user.emp_name %>
-                </td>
-                <td>
-                    <%= user.emp_mail %>
-                </td>
-                <td>
-                    <form method="GET" action="users/<%= user.emp_id %>/edit">
-                        <button type="submit">Edit Info</button>
-                    </form>
-                </td>
-                <td>
-                    <form method="post" action="/users/<%= user.emp_id %>?_method=DELETE">
-                        <button type="submit">Delete</button>
-                    </form>
-                </td>
-            </tr>
-            <%}%>
-    </table>
-</body>
+<body class="page page-users">
 
+    <div class="container">
+        <div class="header">
+            <h2 class="heading">Employee List</h2>
+            <a href="http://localhost:3300/add" class="btn btn-primary">+ Add Employee</a>
+        </div><br>
+
+        <div class="card">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Name</th>
+                        <th>Email</th>
+                        <th colspan="2">Actions</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    <% for(user of users){ %>
+                    <tr>
+                        <td><%= user.emp_id %></td>
+                        <td><%= user.emp_name %></td>
+                        <td><%= user.emp_mail %></td>
+
+                        <td>
+                            <form method="GET" action="users/<%= user.emp_id %>/edit">
+                                <button class="btn btn-edit">Edit</button>
+                            </form>
+                        </td>
+
+                        <td>
+                            <form method="post" action="/users/<%= user.emp_id %>?_method=DELETE">
+                                <button class="btn btn-delete">Delete</button>
+                            </form>
+                        </td>
+                    </tr>
+                    <% } %>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+</body>
 </html>

@@ -4,9 +4,21 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>HOME</title>
+    <link rel="stylesheet" href="/style.css">
 </head>
-<body>
-    <h2>total number of employees : <%= count %></h2>
-    <a href="http://localhost:3300/users">Check here !</a>
+<body class="page page-home">
+
+    <div class="container center">
+        <div class="card card-center">
+            <h2 class="heading">
+                Total Employees: <span class="highlight"><%= count %></span>
+            </h2>
+
+            <a href="http://localhost:3300/users" class="btn btn-primary">
+                View All Users
+            </a>
+        </div>
+    </div>
+
 </body>
 </html>
