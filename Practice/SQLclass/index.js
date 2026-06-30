@@ -4,8 +4,8 @@ const express = require("express");
 const app = express();
 const path = require("path");
 
-
 const methodOverride = require("method-override");
+const { uuid } = require("uuidv4");
 app.use(methodOverride("_method"));
 app.use(express.urlencoded({ extended: true }));
 
@@ -77,29 +77,65 @@ app.get("/users/:id/edit", (req, res) => {
 });
 
 //UPDATE ROUTE
-app.patch("/users/:id",(req,res)=>{
+app.patch("/users/:id", (req, res) => {
   let { id } = req.params;
-  let { password : formPass, username : newuser } = req.body;
+  let { password: formPass, username: newuser } = req.body;
   let query = `select * from emp where emp_id = '${id}'`;
-    try {
-      connection.query(query, (err, result) => {
-        if (err) throw err;
-        let user = result[0];
-        if(formPass != user.emp_password){
-          res.send("galat password hai baba !");
-        }else{
-          let query2 = `update emp set emp_name='${newuser}' where emp_id = '${id}'`;
-          connection.query(query2,(err,result)=>{
-            if(err) throw err;
-            // res.send(result);
-            res.redirect("/users");
-          });
-        }
-      });
-    } catch (err) {
-      console.log(err);
-      res.send("koi gadbad hai baba");
-    }
+  try {
+    connection.query(query, (err, result) => {
+      if (err) throw err;
+      let user = result[0];
+      if (formPass != user.emp_password) {
+        res.send("galat password hai baba !");
+      } else {
+        let query2 = `update emp set emp_name='${newuser}' where emp_id = '${id}'`;
+        connection.query(query2, (err, result) => {
+          if (err) throw err;
+          // res.send(result);
+          res.redirect("/users");
+        });
+      }
+    });
+  } catch (err) {
+    console.log(err);
+    res.send("koi gadbad hai baba");
+  }
+});
+
+//ADDING NEW USER
+app.get("/add", (req, res) => {
+  res.render("add.ejs");
+});
+
+app.post("/users", (req, res) => {
+  let { emp_name, emp_mail, emp_pass } = req.body;
+
+  let id = uuid();
+  let query = `insert into emp values ( "${id}" ,"${emp_name}","${emp_mail}", "${emp_pass}" )`;
+  try {
+    connection.query(query, (err, result) => {
+      if (err) throw err;
+      res.redirect("/users");
+    });
+  } catch (err) {
+    console.log(err);
+    res.send("data nahi gaya");
+  }
+});
+
+//DELETE the employee
+app.delete("/users/:id", (req, res) => {
+  let { id } = req.params;
+  let query = `delete from emp where emp_id = "${id}"`;
+  try {
+    connection.query(query, (err, result) => {
+      if (err) throw err;
+      res.redirect("/users");
+    });
+  } catch (err) {
+    console.log(err);
+    res.send("data delete nahi hua");
+  }
 });
 
 //INSERTING DATA IN SQL DATABASE

@@ -16,7 +16,8 @@
 </head>
 
 <body>
-    <h2>here are the users</h2>
+    <h2>here are the users</h2><a href="http://localhost:3300/add">Add a new Emp
+    </a>
     <table>
         <tr>
             <th>Employee Id</th>
@@ -37,6 +38,11 @@
                 <td>
                     <form method="GET" action="users/<%= user.emp_id %>/edit">
                         <button type="submit">Edit Info</button>
+                    </form>
+                </td>
+                <td>
+                    <form method="post" action="/users/<%= user.emp_id %>?_method=DELETE">
+                        <button type="submit">Delete</button>
                     </form>
                 </td>
             </tr>
