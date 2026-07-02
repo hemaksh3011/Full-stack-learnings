@@ -1,53 +1,59 @@
+const express = require("express");
+const app = express();
 const mongoose = require("mongoose");
+const path = require("path");
+const Chat = require("./models/chat");
 
-async function main() {
-  await mongoose.connect("mongodb://127.0.0.1:27017/test");
-}
+app.use(express.static(path.join(__dirname, "public")));
+app.use(express.urlencoded({ extended: true }));
+app.set("views", path.join(__dirname, "views"));
+app.set("view engine", "ejs");
 
 main()
-  .then((res) => {
-    console.log("successful");
+  .then(() => {
+    console.log("connectino successful");
   })
   .catch((err) => {
     console.log(err);
   });
 
-const userSchema = new mongoose.Schema({
-  name: String,
-  email: String,
-  age: Number,
+async function main() {
+  await mongoose.connect("mongodb://127.0.0.1:27017/texting");
+}
+
+app.get("/chat", async (req, res) => {
+  let chats = await Chat.find();
+  console.log(chats);
+  res.render("chats.ejs", { chats });
 });
 
-const User = mongoose.model("User", userSchema);
+app.get("/chat/new", (req, res) => {
+  res.render("new.ejs");
+});
 
-// const user2 = new User({
-//   name: "kumawat",
-//   email: "kumwat@gmail.com",
-//   age: 22,
-// });
-
-// user2
-//   .save()
-//   .then((res) => {
-//     console.log(res);
-//   })
-//   .catch((err) => {
-//     console.log(err);
-//   });
-
-// User.insertMany([
-//     { name: "kumawat", email: "kumwat@gmail.com", age: 22 },
-//     { name: "asssddf", email: "assdfa@gmail.com", age: 23},
-//     { name: "bwrwebr", email: "wegvrvrb@gmail.com", age: 26 },
-//     { name: "vjobdnfui", email: "isunvisw@gmail.com", age: 28 },
-// ]).then((res)=>{
-//     console.log(res);
-// });
-
-User.find({ age: { $gt: 25 } })
-  .then((res) => {
-    console.log(res[0].name);
-  })
-  .catch((err) => {
-    console.log(err);
+app.post("/chat/new", (req, res) => {
+  let { from, msg, to } = req.body;
+  let newChat = new  Chat({
+    from: from,
+    msg: msg,
+    to: to,
+    created_at: new Date(),
   });
+  newChat
+    .save()
+    .then((result) => {
+      console.log();
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+  res.redirect("/chat");
+});
+
+app.get("/", (req, res) => {
+  res.send("working");
+});
+
+app.listen(3300, () => {
+  console.log("app is listening");
+});
