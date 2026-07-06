@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add New</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f4f4f4;
+            display: flex;
+            justify-content: center;
+            margin-top: 40px;
+        }
+
+        form {
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            width: 350px;
+        }
+
+        input,
+        textarea {
+            width: 100%;
+            padding: 8px;
+            margin: 8px 0;
+        }
+
+        button {
+            width: 100%;
+            padding: 10px;
+            background: #4a90e2;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    
+    <form action="/" method="POST">
+        <h2>Create New Listing</h2>
+
+        <label>Title</label><br>
+        <input type="text" name="newlist[title]"><br><br>
+
+        <label>Description</label><br>
+        <textarea name="newlist[description]" rows="4" cols="40"></textarea><br><br>
+
+        <label>Image URL</label><br>
+        <input type="text" name="newlist[imageurl]"><br><br>
+
+        <label>Price</label><br>
+        <input type="number" name="newlist[price]"><br><br>
+
+        <label>Location</label><br>
+        <input type="text" name="newlist[location]"><br><br>
+
+        <label>Country</label><br>
+        <input type="text" name="newlist[country]"><br><br>
+
+        <button type="submit">Add Listing</button>
+
+    </form>
+</body>
+
+</html>
