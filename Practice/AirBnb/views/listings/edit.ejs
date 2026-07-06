@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Showing Listing</title>
+
+    <style>
+        body {
+            margin: 0;
+            display: flex;
+            justify-content: center;
+        }
+        .prime{
+            background-color: rgba(128, 128, 128, 0.544);
+            width: 60%;
+            padding: 20px;
+            border-radius:10px ;
+            margin: 20px 0;
+        }
+
+        .details form {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+
+        .field {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .field label {
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 5px;
+        }
+
+        .field input,
+        .field textarea {
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+
+        button,a {
+            background: rgb(84, 84, 253);
+            color: white;
+            border: none;
+            padding: 10px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            text-decoration: none;
+        }
+
+        a:last-child{
+            background: rgb(253, 84, 84);
+                
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="prime">
+    <form action="/<%= edit._id %>/?_method=PUT" method="POST" >
+        <h2>Edit Your Listing</h2>
+
+        <div class="field">
+            <label>Title</label>
+            <input type="text" name="edit[title]" value="<%= edit.title %>">
+        </div><br>
+
+        <div class="field">
+            <label>Description</label>
+            <textarea name="edit[description]"><%= edit.description %></textarea>
+        </div><br>
+
+        <div class="field">
+            <label>Image URL</label>
+            <input type="text" name="edit[image.url]" value="<%= edit.image.url %>">
+        </div><br>
+
+        <div class="field">
+            <label>Price</label>
+            <input type="number" name="edit[price]" value="<%= edit.price %>">
+        </div><br>
+
+        <div class="field">
+            <label>Location</label>
+            <input type="text" name="edit[location]" value="<%= edit.location %>">
+        </div><br>
+
+        <div class="field">
+            <label>Country</label>
+            <input type="text" name="edit[country]" value="<%= edit.country %>">
+        </div><br>
+
+        <button type="submit">Update Listing</button>
+        <a href="/">Back</a>
+
+    </form>
+    </div>
+</body>
+
+</html>

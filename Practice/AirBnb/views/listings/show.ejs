@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -31,7 +32,7 @@
             gap: 30px;
             padding: 20px;
             border-radius: 10px;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
         }
 
         .image-section {
@@ -68,7 +69,12 @@
             color: #333;
         }
 
-        a{
+        .actions{
+            display: flex;
+            gap: 20px;
+        }
+
+        a {
             text-decoration: none;
             background-color: rgb(84, 84, 253);
             color: white;
@@ -76,8 +82,16 @@
             font-size: 15px;
             border-radius: 10%;
         }
-        a:last-child{
+
+        a:last-child,
+        button {
             background-color: rgb(253, 84, 84);
+            text-decoration: none;
+            color: white;
+            border: none;
+            padding: 8px 15px;
+            font-size: 15px;
+            border-radius: 10%;
         }
 
         @media (max-width: 768px) {
@@ -91,9 +105,10 @@
         }
     </style>
 </head>
+
 <body>
 
-    <h2>Showing Listing</h2>
+    <h2>"<%= lists.title %>"</h2>
 
     <div class="container">
 
@@ -103,18 +118,35 @@
 
         <div class="details">
             <ul>
-                <li><span class="label">ID:</span> <%= lists._id %></li>
-                <li><span class="label">Title:</span> <%= lists.title %></li>
-                <li><span class="label">Description:</span> <%= lists.description %></li>
-                <li><span class="label">Price:</span> &#8377;<%= lists.price.toLocaleString("en-IN") %></li>
-                <li><span class="label">Location:</span> <%= lists.location %></li>
-                <li><span class="label">Country:</span> <%= lists.country %></li>
+                <li><span class="label">ID:</span>
+                    <%= lists._id %>
+                </li>
+                <li><span class="label">Title:</span>
+                    <%= lists.title %>
+                </li>
+                <li><span class="label">Description:</span>
+                    <%= lists.description %>
+                </li>
+                <li><span class="label">Price:</span> &#8377;<%= lists.price.toLocaleString("en-IN") %>
+                </li>
+                <li><span class="label">Location:</span>
+                    <%= lists.location %>
+                </li>
+                <li><span class="label">Country:</span>
+                    <%= lists.country %>
+                </li>
             </ul><br>
-            <a href="/<%= lists._id %>/edit">Edit</a>
-            <a href="/<%= lists._id %>/delete">Delete</a>
+            <div class="actions">
+                <a href="/<%= lists._id %>/edit">Edit</a>
+                <a href="/">Back</a>
+                <form action="/<%= lists._id %>?_method=DELETE" method="post">
+                    <button type="submit">Delete</button>
+                </form>
+            </div>
         </div>
 
     </div>
 
 </body>
+
 </html>
