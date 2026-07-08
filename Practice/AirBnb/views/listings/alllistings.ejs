@@ -1,113 +1,34 @@
-<!DOCTYPE html>
-<html lang="en">
+<% layout("/layouts/boilerplate") %>
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>All Listings</title>
+    <body>
 
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: Arial, Helvetica, sans-serif;
-        }
+        <h2>All Listings <%=count%>
+        </h2>
 
-        body {
-            background: #f4f4f4;
-            padding: 40px;
-        }
-
-        h2 {
-            text-align: center;
-            margin-bottom: 20px;
-        }
-
-        body>form {
-            text-align: center;
-            margin-bottom: 30px;
-        }
-
-        .field {
-            max-width: 600px;
-            margin: 15px auto;
-            background: #fff;
-            padding: 15px 20px;
-            border-radius: 8px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, .1);
-        }
-
-        li {
-            list-style: none;
-            font-size: 15px;
-        }
-
-        .actions {
-            display: flex;
-            gap: 10px;
-            align-items: center;
-        }
-
-        a {
-            text-decoration: none;
-            color: #333;
-            font-weight: bold;
-        }
-
-        .actions a,
-        button {
-            background: rgb(84, 84, 253);
-            color: #fff;
-            padding: 8px 14px;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            font-size: 12px;
-        }
-
-        .actions form {
-            margin: 0;
-        }
-
-        .actions button:last-child {
-            background: rgb(253, 84, 84);
-            font-size: 12px;
-            font-weight: bold;
-        }
-    </style>
-
-</head>
-
-<body>
-
-    <h2>All Listings <%=count%>
-    </h2>
-
-    <form action="/add-new" method="get">
-        <button type="submit">Add new</button>
-    </form>
-
-    <%for(let listing of alllisting){%>
-        <div class="field">
-            <li><a href="/<%= listing._id %>">
-                    <%= listing.title %>
-                </a></li>
-            <div class="actions">
-                <form action="/<%= listing._id %>" method="get">
-                    <button type="submit">Show</button>
-                </form>
-                <a href="/<%= listing._id %>/edit">Edit</a>
-                <form action="/<%= listing._id %>?_method=DELETE" method="post">
-                    <button type="submit">Delete</button>
-                </form>
-            </div>
+        <div class="row row-cols-lg-5  ">
+            <%for(let listing of alllisting){%>
+                <a href="/<%= listing._id %>" class="underline-remove">
+                    <div class="card  " style="width: 18rem;">
+                        <img src="<%= listing.image.url %>" class="card-img-top" alt="...">
+                        <div class="card-img-overlay">Click</div>
+                        <div class="card-body">
+                            <h5 class="card-title">
+                                <%= listing.title %>
+                            </h5>
+                            <p class="card-text">
+                                &#8377; <%= listing.price.toLocaleString("en-IN") %> / Night
+                            </p>
+                        </div>
+                        <!-- <div class="card-body">
+                    <a href="/<%= listing._id %>" class="card-link">Show</a>
+                    <a href="/<%= listing._id %>/edit" class="card-link">Edit</a>
+                    <form action="/<%= listing._id %>?_method=DELETE" method="post">
+                        <button type="submit">Delete</button>
+                    </form>
+                </div> -->
+                    </div>
+                </a>
+                <%}%>
         </div>
-        <%}%>
 
-</body>
-
-</html>
+    </body>

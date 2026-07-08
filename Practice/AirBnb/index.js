@@ -4,12 +4,15 @@ const mongoose = require("mongoose");
 const listing = require("./models/listing.js");
 const path = require("path");
 const methodOverride = require("method-override");
+const engine = require("ejs-mate");
 
 
 app.set("views", path.join(__dirname, "views"));
 app.set("view engine", "ejs");
 app.use(express.urlencoded({ extended: true }));
 app.use(methodOverride("_method"));
+app.engine("ejs", engine);
+app.use(express.static(path.join(__dirname, "public")));
 
 async function main() {
   await mongoose.connect("mongodb://127.0.0.1:27017/BIDES");
@@ -39,12 +42,7 @@ app.get("/add-new", (req, res) => {
   res.render("listings/add.ejs");
 });
 
-//show route
-app.get("/:id", async (req, res) => {
-  let { id } = req.params;
-  const lists = await listing.findById(id);
-  res.render("listings/show.ejs", { lists });
-});
+
 
 //posting new prop
 app.post("/", async (req, res) => {
@@ -91,4 +89,10 @@ app.delete("/:id",async(req,res)=>{
 
 app.listen(3300, () => {
   console.log("Lets Get Started !!");
+});
+//show route
+app.get("/:id", async (req, res) => {
+  let { id } = req.params;
+  const lists = await listing.findById(id);
+  res.render("listings/show.ejs", { lists });
 });

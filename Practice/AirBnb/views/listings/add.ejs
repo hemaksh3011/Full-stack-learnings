@@ -1,92 +1,65 @@
-<!DOCTYPE html>
-<html lang="en">
+<% layout("/layouts/boilerplate") %>
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Add New</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: Arial, Helvetica, sans-serif;
-        }
+    <body>
 
-        body {
-            background: #f4f4f4;
-            padding: 40px;
-            display: flex;
-            justify-content: center;
-        }
+        <div class="container mt-5">
+            <div class="row justify-content-center">
+                <div class="col-md-8 col-lg-6">
 
-        form {
-            background: #fff;
-            padding: 25px;
-            width: 400px;
-            border-radius: 8px;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, .1);
-        }
+                    <div class="shadow-sm border-5">
+                        <div class="card-body p-4">
 
-        h2 {
-            text-align: center;
-            margin-bottom: 20px;
-        }
+                            <h2 class="mb-4 text-center">Create New Listing</h2>
 
-        label {
-            font-weight: bold;
-            display: block;
-            margin-top: 10px;
-        }
+                            <form action="/" method="POST">
 
-        input,
-        textarea {
-            width: 100%;
-            padding: 10px;
-            margin-top: 5px;
-            border: 1px solid #ddd;
-            border-radius: 5px;
-        }
+                                <div class="mb-3">
+                                    <label class="form-label">Title</label>
+                                    <input type="text" class="form-control" name="newlist[title]"
+                                        placeholder="Enter title">
+                                </div>
 
-        button {
-            width: 100%;
-            margin-top: 15px;
-            padding: 10px;
-            background: rgb(84, 84, 253);
-            color: #fff;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-        }
-    </style>
-</head>
+                                <div class="mb-3">
+                                    <label class="form-label">Description</label>
+                                    <textarea class="form-control" name="newlist[description]" rows="4"
+                                        placeholder="Enter description"></textarea>
+                                </div>
 
-<body>
+                                <div class="mb-3">
+                                    <label class="form-label">Image URL</label>
+                                    <input type="text" class="form-control" name="newlist[image.url]"
+                                        placeholder="Enter image URL">
+                                </div>
 
-    <form action="/" method="POST">
-        <h2>Create New Listing</h2>
+                                <div class="mb-3">
+                                    <label class="form-label">Price</label>
+                                    <input type="number" class="form-control" name="newlist[price]"
+                                        placeholder="Enter price">
+                                </div>
 
-        <label>Title</label><br>
-        <input type="text" name="newlist[title]"><br><br>
+                                <div class="mb-3">
+                                    <label class="form-label">Location</label>
+                                    <input type="text" class="form-control" name="newlist[location]"
+                                        placeholder="Enter location">
+                                </div>
 
-        <label>Description</label><br>
-        <textarea name="newlist[description]" rows="4" cols="40"></textarea><br><br>
+                                <div class="mb-3">
+                                    <label class="form-label">Country</label>
+                                    <input type="text" class="form-control" name="newlist[country]"
+                                        placeholder="Enter country">
+                                </div>
 
-        <label>Image URL</label><br>
-        <input type="text" name="newlist[imageurl]"><br><br>
+                                <button class="btn btn-dark w-100" type="submit">
+                                    Add Listing
+                                </button>
 
-        <label>Price</label><br>
-        <input type="number" name="newlist[price]"><br><br>
+                            </form>
 
-        <label>Location</label><br>
-        <input type="text" name="newlist[location]"><br><br>
+                        </div>
+                    </div>
 
-        <label>Country</label><br>
-        <input type="text" name="newlist[country]"><br><br>
+                </div>
+            </div>
+        </div>
 
-        <button type="submit">Add Listing</button>
-
-    </form>
-</body>
-
-</html>
+    </body>
