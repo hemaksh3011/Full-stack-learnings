@@ -60,17 +60,17 @@
                         <!-- Actions -->
                         <div class="d-flex gap-3 mt-4">
     
-                            <a href="/<%= lists._id %>/edit" 
+                            <a href="/listing/<%= lists._id %>/edit" 
                                class="btn btn-dark">
                                 Edit
                             </a>
     
-                            <a href="/" 
+                            <a href="/listing/" 
                                class="btn btn-outline-secondary">
                                 Back
                             </a>
     
-                            <form action="/<%= lists._id %>?_method=DELETE" method="POST">
+                            <form action="/listing/<%= lists._id %>?_method=DELETE" method="POST">
                                 <button 
                                     type="submit" 
                                     class="btn btn-danger">

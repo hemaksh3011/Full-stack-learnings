@@ -7,7 +7,7 @@
 
         <div class="row row-cols-lg-5  ">
             <%for(let listing of alllisting){%>
-                <a href="/<%= listing._id %>" class="underline-remove">
+                <a href="/listing/<%= listing._id %>" class="underline-remove">
                     <div class="card  " style="width: 18rem;">
                         <img src="<%= listing.image.url %>" class="card-img-top" alt="...">
                         <div class="card-img-overlay">Click</div>

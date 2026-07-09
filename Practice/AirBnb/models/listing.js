@@ -25,6 +25,8 @@ const listingSchema = new schema({
     //SET ME JO BHI VALUE AGAR NAHI AA PATI HAI TO DEFAULT VALUE HIT HOGI FOR THE IMAGE
   price: {
     type: Number,
+    required: true,
+    min: 1,
   },
   location: {
     type: String,

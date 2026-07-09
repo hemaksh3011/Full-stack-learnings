@@ -1,68 +1,85 @@
 <% layout("/layouts/boilerplate") %>
 
-<body>
-    <div class="container mt-5">
-        <div class="row justify-content-center">
-            <div class="col-md-8 col-lg-6">
+    <body>
+        <div class="container mt-5">
+            <div class="row justify-content-center">
+                <div class="col-md-8 col-lg-6">
 
-                <div class=" shadow-sm border-0">
-                    <div class="card-body p-4">
+                    <div class=" shadow-sm border-0">
+                        <div class="card-body p-4">
 
-                        <h2 class="mb-4 text-center">Edit Your Listing</h2>
+                            <h2 class="mb-4 text-center">Edit Your Listing</h2>
 
-                        <form action="/<%= edit._id %>/?_method=PUT" method="POST">
+                            <form action="/listing/<%= edit._id %>/?_method=PUT" method="POST" novalidate
+                                class="needs-validation">
 
-                            <div class="mb-3">
-                                <label class="form-label">Title</label>
-                                <input type="text" class="form-control" name="edit[title]" value="<%= edit.title %>">
-                            </div>
+                                <div class="mb-3">
+                                    <label class="form-label">Title</label>
+                                    <input type="text" class="form-control" name="edit[title]" value="<%= edit.title %>"
+                                        required>
+                                    <div class="valid-feedback">Nice title!</div>
+                                    <div class="invalid-feedback">Name the place!</div>
+                                </div>
 
-                            <div class="mb-3">
-                                <label class="form-label">Description</label>
-                                <textarea class="form-control" name="edit[description]"
-                                    rows="4"><%= edit.description %></textarea>
-                            </div>
+                                <div class="mb-3">
+                                    <label class="form-label">Description</label>
+                                    <textarea class="form-control" name="edit[description]" rows="4"
+                                        required><%= edit.description %></textarea>
+                                    <div class="valid-feedback">Looks clean!</div>
+                                    <div class="invalid-feedback">Some details should be here!</div>
+                                </div>
 
-                            <div class="mb-3">
-                                <label class="form-label">Image URL</label>
-                                <input type="text" class="form-control" name="edit[image.url]"
-                                    value="<%= edit.image.url %>">
-                            </div>
+                                <div class="mb-3">
+                                    <label class="form-label">Image URL</label>
+                                    <input type="text" class="form-control" name="edit[image.url]"
+                                        value="<%= edit.image.url %>" required>
+                                    <div class="invalid-feedback">URL should be valid!</div>
 
-                            <div class="mb-3">
-                                <label class="form-label">Price</label>
-                                <input type="number" class="form-control" name="edit[price]" value="<%= edit.price %>">
-                            </div>
+                                </div>
 
-                            <div class="mb-3">
-                                <label class="form-label">Location</label>
-                                <input type="text" class="form-control" name="edit[location]"
-                                    value="<%= edit.location %>">
-                            </div>
+                                <div class="mb-3">
+                                    <label class="form-label">Price</label>
+                                    <input type="text" class="form-control" name="edit[price]"
+                                        value="<%= edit.price %>" required>
+                                    <div class="valid-feedback">It deserves the price!</div>
+                                    <div class="invalid-feedback">Put some price!</div>
 
-                            <div class="mb-3">
-                                <label class="form-label">Country</label>
-                                <input type="text" class="form-control" name="edit[country]"
-                                    value="<%= edit.country %>">
-                            </div>
+                                </div>
 
-                            <div class="d-flex gap-3">
-                                <button type="submit" class="btn btn-dark flex-grow-1">
-                                    Update Listing
-                                </button>
+                                <div class="mb-3">
+                                    <label class="form-label">Location</label>
+                                    <input type="text" class="form-control" name="edit[location]"
+                                        value="<%= edit.location %>" required>
+                                    <div class="valid-feedback">Cool place!</div>
+                                    <div class="invalid-feedback">That doesn't exist!</div>
 
-                                <a href="/" class="btn btn-outline-secondary">
-                                    Back
-                                </a>
-                            </div>
+                                </div>
 
-                        </form>
+                                <div class="mb-3">
+                                    <label class="form-label">Country</label>
+                                    <input type="text" class="form-control" name="edit[country]"
+                                        value="<%= edit.country %>" required>
+                                    <div class="valid-feedback">Perfect!</div>
+                                    <div class="invalid-feedback">Which country!</div>
 
+                                </div>
+
+                                <div class="d-flex gap-3">
+                                    <button type="submit" class="btn btn-dark flex-grow-1">
+                                        Update Listing
+                                    </button>
+
+                                    <a href="/listing/" class="btn btn-outline-secondary">
+                                        Back
+                                    </a>
+                                </div>
+
+                            </form>
+
+                        </div>
                     </div>
-                </div>
 
+                </div>
             </div>
         </div>
-    </div>
-
-</body>
+    </body>
